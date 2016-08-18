@@ -1,0 +1,27 @@
+{
+    "long_island": {
+        "vodka": 1.0,
+        "gin": 1.0,
+        "white rum": 1.0,
+        "white twquila": 1.0,
+        "tripple sec": 0.5,
+        "lemon juice": 1,
+        "cola": 4
+        },
+    
+    "screwdriver": {
+        "vodka": 1.75,
+        "oj": 3.50
+        },
+
+    "drink_parts": {
+        "vodka": "1",
+        "gin": "2",
+        "white rum": "3",
+        "white twquila": "4",
+        "tripple sec": "5",
+        "lemon juice": "6",
+        "cola": "7",
+        "oj": "8"
+        }
+}
