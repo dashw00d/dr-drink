@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import time
 import json
+from pprint import pprint
 
 
 with open('recipes.json') as data_file:
@@ -13,41 +14,44 @@ class PoorDrink:
     def __init__(self, drink):
         self.drink = drink
         self.total_oz = 0
+        self.target_oz = 0
         self.elapsed = 0
+        self.user_poor = {}
 
     def timer(self):
         start = time.time()
         time.clock()  # starts measuring process time
-        for key in self.drink:
-            self.total_oz += self.drink[key]
+        for key in self.user_poor:
+            self.total_oz += self.user_poor[key]
+            self.target_oz += self.drink[key]
 
             while self.elapsed <= self.total_oz:
                 self.elapsed = time.time() - start
-                print(json_data["drink_parts"][key] * 5)
+                print(json_data["drink_parts"][key])
                 time.sleep(.5)
+        # return self.total_oz
 
         print("Total Ounces:", self.total_oz)
-'''
+        print("Target Ounces:", self.target_oz)
+        self.score()
+
+    def menu(self):
+
+        for key in self.drink:
+            amount = float(input("How much {}?: ".format(key)))
+            self.user_poor[key] = amount
+        pprint(self.user_poor)
+        self.timer()
+
     def score(self):
+        comb = 0
+        for key in self.drink:
+            user = 100 * float(self.user_poor[key]) / float(self.target_oz)
+            source = 100 * float(self.drink[key]) / float(self.target_oz)
+            comb += abs(user - source)
 
-        denominator = vodka + oj
-        drink1 = 100 * float(vodka_seconds) / float(denominator)
-        drink2 = 100 * float(orange_juice_seconds) / float(denominator)
-        vodkad = 100 * float(vodka) / float(denominator)
-        ojd = 100 * float(oj) / float(denominator)
-        comb = abs(drink1 - vodkad) + abs(drink2 - ojd)
-        score = 100 - comb
-
-        print("Denominator", denominator)
-        print("vodka", drink1)
-        print("oj", drink2)
-        print("taget vodka", vodkad)
-        print("target oj", ojd)
-        print("Percent Wrong Vodka: ", abs(drink1 - vodkad))
-        print("Percent Wrong OJ: ", abs(drink2 - ojd))
-        print("Score: ", score)
-'''
+        print("Score:", 100 - comb)
 
 if __name__ == "__main__":
     test = PoorDrink(json_data["long_island"])
-    test.timer()
+    test.menu()

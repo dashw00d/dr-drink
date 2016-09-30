@@ -3,7 +3,7 @@
         "vodka": 1.0,
         "gin": 1.0,
         "white rum": 1.0,
-        "white twquila": 1.0,
+        "white tequila": 1.0,
         "tripple sec": 0.5,
         "lemon juice": 1,
         "cola": 4
@@ -15,13 +15,13 @@
         },
 
     "drink_parts": {
-        "vodka": "1",
-        "gin": "2",
-        "white rum": "3",
-        "white twquila": "4",
-        "tripple sec": "5",
-        "lemon juice": "6",
-        "cola": "7",
-        "oj": "8"
+        "vodka": "vodka",
+        "gin": "gin",
+        "white rum": "white rum",
+        "white tequila": "white tequila",
+        "tripple sec": "tripple sec",
+        "lemon juice": "lemon juice",
+        "cola": "cola",
+        "oj": "oj"
         }
 }
